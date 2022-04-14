@@ -1,10 +1,10 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
+This project is a simple product storefront made with Angular. A visitor to the site can browse products, view details of a product, and add items to a cart to complete a purchase.
 
-## Development server
+## Running the application
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Clone the project, run `npm install`, and `ng serve`. Navigate to `http://localhost:4200/`.
 
 ## Code scaffolding
 
