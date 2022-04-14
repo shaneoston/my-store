@@ -4,6 +4,7 @@ interface Product {
     description: string
     url: string
     category: string | null
+    price: number
 }
 
 export default Product
