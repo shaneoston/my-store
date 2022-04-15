@@ -1,0 +1,33 @@
+<div
+    *ngIf="product"
+    class="flex flex-row pt-24">
+    <img
+        class="h-96 rounded-sm"
+        src="{{ product.url }}"
+        alt="Image of {{ product.name }}" />
+    <div class="flex flex-col pl-24 pt-20">
+        <p class="text-lg font-semibold">{{ product.name }}</p>
+        <p class="pt-3 pb-3">${{ product.price }}</p>
+        <p class="pb-8">{{ product.description }}</p>
+        <select
+            class="block h-7 w-16 border"
+            name="quantity"
+            id="quantity"
+            [(ngModel)]="quantitySelected"
+            required>
+            <option *ngFor="let quantity of quantities">
+                {{ quantity }}
+            </option>
+        </select>
+        <button
+            class="mx-auto mt-4 w-48 h-8 rounded-sm bg-sky-900 text-white"
+            type="submit">
+            Add to cart
+        </button>
+        <a
+            class="pt-4"
+            routerLink="/">
+          &#8617; &nbsp; Back to products
+        </a>
+    </div>
+</div>
