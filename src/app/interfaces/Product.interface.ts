@@ -1,4 +1,5 @@
 interface Product {
+    quantity?: number
     id: number
     name: string
     description: string
