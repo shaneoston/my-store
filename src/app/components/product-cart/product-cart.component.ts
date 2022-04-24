@@ -34,4 +34,12 @@ export class ProductCartComponent implements OnInit {
         this.cart.total = total
         return total
     }
+
+    removeFromCart(cartItem: Product): void {
+        const items = this.cart.items
+        this.cart.items = items.splice(
+            items.findIndex((i) => cartItem.id === i.id),
+            1
+        )
+    }
 }

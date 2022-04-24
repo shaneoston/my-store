@@ -6,7 +6,7 @@ import { Router } from '@angular/router'
 @Component({
     selector: 'app-customer-form',
     templateUrl: './customer-form.component.html',
-    styleUrls: ['./customer-form.component.css'],
+    styleUrls: [],
 })
 export class CustomerFormComponent implements OnInit {
     // @ts-ignore
