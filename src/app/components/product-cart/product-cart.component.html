@@ -1,33 +1,36 @@
 <div class="pt-24 mx-auto w-1/2">
     <div
         class="align-left w-max"
-        *ngIf="cart.length === 0">
+        *ngIf="cart.items.length === 0">
         <p>Your cart is empty.</p>
-        <a routerLink="/">&#8617; &nbsp; Back to cartItems</a>
+        <a routerLink="/">&#8617; &nbsp; Back to products</a>
     </div>
-    <div *ngIf="cart.length > 0">
+    <div *ngIf="cart.items.length > 0">
         <div class="flex flex-row justify-start">
-          <div class="flex flex-col w-1/2">
-            <div class="flex flex-row mb-10" *ngFor="let cartItem of cart">
-              <img
-                class="rounded-sm h-36"
-                src="{{ cartItem.url }}"
-                alt="Image of {{ cartItem.name }}"/>
-              <div class="flex flex-col pl-12 pt-4">
-                <p class="text-lg font-semibold">{{ cartItem.name }}</p>
-                <p class="pt-3 pb-3">${{ cartItem.price }}</p>
-                <div class="flex flex-row">
-                  <p class="pt-1 pr-1">Number:</p>
-                  <input
-                    class="w-16 border border-slate-400 p-0.5"
-                    type="number"
-                    [(ngModel)]="cartItem.quantity"/>
+            <div class="flex flex-col w-1/2">
+                <div
+                    class="flex flex-row mb-10"
+                    *ngFor="let cartItem of cart.items">
+                    <img
+                        class="rounded-sm h-36"
+                        src="{{ cartItem.url }}"
+                        alt="Image of {{ cartItem.name }}" />
+                    <div class="flex flex-col pl-12 pt-4">
+                        <p class="text-lg font-semibold">{{ cartItem.name }}</p>
+                        <p class="pt-3 pb-3">${{ cartItem.price }}</p>
+                        <div class="flex flex-row">
+                            <p class="pt-1 pr-1">Number:</p>
+                            <input
+                                class="w-16 border border-slate-400 p-0.5"
+                                type="number"
+                                min="1"
+                                [(ngModel)]="cartItem.quantity" />
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <p class="font-bold">Cart total: {{ getCartTotal() }}</p>
             </div>
-            <p class="font-bold">Cart total: {{ getCartTotal() }}</p>
-          </div>
-          <app-customer-form class="w-1/2"></app-customer-form>
+            <app-customer-form class="w-1/2"></app-customer-form>
         </div>
     </div>
 </div>

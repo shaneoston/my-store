@@ -12,6 +12,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { NavbarComponent } from './components/navbar/navbar.component'
 import { ProductCartComponent } from './components/product-cart/product-cart.component'
 import { CustomerFormComponent } from './components/customer-form/customer-form.component'
+import { SaleConfirmationComponent } from './components/sale-confirmation/sale-confirmation.component'
 
 @NgModule({
     declarations: [
@@ -22,14 +23,9 @@ import { CustomerFormComponent } from './components/customer-form/customer-form.
         NavbarComponent,
         ProductCartComponent,
         CustomerFormComponent,
+        SaleConfirmationComponent,
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
-    ],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
     providers: [],
     bootstrap: [AppComponent],
 })
