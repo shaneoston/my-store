@@ -10,18 +10,22 @@ import Product from '../../interfaces/Product.interface'
     styleUrls: [],
 })
 export class SaleConfirmationComponent implements OnInit {
-    public cart: Cart = {
+    public customerName: string | undefined
+    public sale: Cart = {
         customer: {} as Customer,
         items: [] as Product[],
         total: 0,
     }
-    public customerName: string | undefined
 
     constructor(private cartService: ProductCartService) {}
 
     ngOnInit(): void {
-        this.cart = this.cartService.getCart()
+        this.sale = Object.assign({}, this.cartService.getCart())
         // @ts-ignore
-        this.customerName = this.cart.customer.value.fullName as string
+        this.customerName = this.sale.customer.value.fullName as string
+    }
+
+    ngOnDestroy() {
+        this.cartService.resetCart()
     }
 }

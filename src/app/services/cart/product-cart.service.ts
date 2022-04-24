@@ -32,4 +32,12 @@ export class ProductCartService {
     addCustomer(customer: object): void {
         this.cart.customer = customer
     }
+
+    resetCart(): void {
+        this.cart = {
+            items: [],
+            customer: {},
+            total: 0,
+        }
+    }
 }
