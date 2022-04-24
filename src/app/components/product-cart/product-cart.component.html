@@ -7,7 +7,7 @@
     </div>
     <div *ngIf="cart.items.length > 0">
         <div class="flex flex-row justify-start">
-            <div class="flex flex-col w-1/2">
+            <div class="flex flex-col w-1/2 mr-12">
                 <div
                     class="flex flex-row mb-10"
                     *ngFor="let cartItem of cart.items">
@@ -15,8 +15,15 @@
                         class="rounded-sm h-36"
                         src="{{ cartItem.url }}"
                         alt="Image of {{ cartItem.name }}" />
-                    <div class="flex flex-col pl-12 pt-4">
-                        <p class="text-lg font-semibold">{{ cartItem.name }}</p>
+                    <div class="flex flex-col pl-12 pt-4 w-full">
+                        <div class="flex flex-row justify-between">
+                            <p class="text-lg font-semibold">{{ cartItem.name }}</p>
+                            <p
+                                class="text-sm cursor-pointer underline pt-0.5"
+                                (click)="removeFromCart(cartItem)">
+                                Remove
+                            </p>
+                        </div>
                         <p class="pt-3 pb-3">${{ cartItem.price }}</p>
                         <div class="flex flex-row">
                             <p class="pt-1 pr-1">Number:</p>
