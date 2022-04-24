@@ -5,17 +5,16 @@ import Product from '../../interfaces/Product.interface'
 @Component({
     selector: 'app-product-list',
     templateUrl: './product-list.component.html',
-    styleUrls: ['./product-list.component.css'],
+    styleUrls: [],
 })
 export class ProductListComponent implements OnInit {
-    products: Product[] | undefined
+    products: Array<Product> | undefined
 
     constructor(private productService: ProductService) {}
 
     ngOnInit(): void {
         this.productService.getProducts().subscribe((data) => {
             this.products = data
-            console.log(this.products)
         })
     }
 }
