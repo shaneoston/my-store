@@ -12,6 +12,6 @@ Follow these steps to set up and start the API locally:
    contains products for the store. Restore this file via `psql` or if you are on a Mav, via pgAdmin. Instructions for restoring a dump can be found 
    [here](https://www.postgresql.org/docs/8.1/backup.html#BACKUP-DUMP-RESTORE).  **Be sure you name your database 
    `full_stack_dev` or the app will not work.**
-4. Once restored and your postgres server is running, start the API with `yarn start dev`.
+4. Once restored and your postgres server is running, start the API with `yarn start-dev`.
 
 After starting the API, clone this repo, run `yarn` and `ng serve`. Navigate to `http://localhost:4200/`.
