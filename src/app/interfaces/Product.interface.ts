@@ -4,7 +4,6 @@ interface Product {
     name: string
     description: string
     url: string
-    category: string | null
     price: number
 }
 

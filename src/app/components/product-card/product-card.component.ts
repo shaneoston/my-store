@@ -12,7 +12,6 @@ export class ProductCardComponent implements OnInit {
         id: 0,
         name: '',
         description: '',
-        category: '',
         price: 0,
         url: '',
     }

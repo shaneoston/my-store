@@ -26,9 +26,7 @@ export class ProductDetailComponent implements OnInit {
             this.id = parseInt(params.get('id') as string)
         })
 
-        this.productService.getProductById(this.id).subscribe((data) => {
-            this.product = data as unknown as Product
-        })
+        this.product = this.productService.getProductById(this.id as number)
     }
 
     addToCart() {
