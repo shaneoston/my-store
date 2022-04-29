@@ -36,10 +36,7 @@ export class ProductCartComponent implements OnInit {
     }
 
     removeFromCart(cartItem: Product): void {
-        const items = this.cart.items
-        this.cart.items = items.splice(
-            items.findIndex((i) => cartItem.id === i.id),
-            1
-        )
+        const index = this.cart.items.findIndex((i) => cartItem.id === i.id)
+        this.cart.items.splice(index, 1)
     }
 }

@@ -13,7 +13,8 @@ export class ProductDetailComponent implements OnInit {
     quantities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     quantitySelected: number = 1
     private id: number | undefined
-    public product: Product | undefined
+    private products: Product[] | null = null
+    public product: Product | null = null
 
     constructor(
         private Activatedroute: ActivatedRoute,
@@ -26,7 +27,11 @@ export class ProductDetailComponent implements OnInit {
             this.id = parseInt(params.get('id') as string)
         })
 
-        this.product = this.productService.getProductById(this.id as number)
+        this.productService.getProducts().subscribe((data) => {
+            this.products = data
+            // @ts-ignore
+            this.product = this.products.find((p) => p.id === this.id)
+        })
     }
 
     addToCart() {
