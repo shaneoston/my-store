@@ -18,9 +18,9 @@ export class ProductCartService {
         return this.cart.items.length
     }
 
-    addToCart(product: Product, quantity: number): void {
+    addToCart(product: Product | null): void {
         const item = this.cart.items.find((item) => {
-            return product.id === item['id']
+            return product?.id === item['id']
         })
 
         if (item) {
@@ -28,11 +28,10 @@ export class ProductCartService {
             // @ts-ignore
             this.cart.items[index].quantity += 1
         } else {
-            product.quantity = quantity
             // @ts-ignore
             this.cart.items.push(product)
         }
-        alert(`Item ${product.name} added to cart`)
+        alert(`Item ${product?.name} added to cart`)
     }
 
     getCart(): Cart {

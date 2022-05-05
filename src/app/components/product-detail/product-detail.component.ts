@@ -36,6 +36,7 @@ export class ProductDetailComponent implements OnInit {
 
     addToCart() {
         // @ts-ignore
-        this.cartService.addToCart(this.product, this.quantitySelected)
+        this.product.quantity = this.quantitySelected
+        this.cartService.addToCart(this.product)
     }
 }

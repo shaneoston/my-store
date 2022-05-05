@@ -1,7 +1,7 @@
-<form (ngSubmit)="addProductToCart(product)">
+<form>
     <div class="flex flex-col p-4 w-60 text-center">
         <a [routerLink]="['product', product.id]">
-          <img
+            <img
                 class="border border-slate-500 rounded-sm p-3"
                 src="{{ product.url }}"
                 alt="Image of {{ product.name }}" />
@@ -10,7 +10,7 @@
             <a
                 class="font-semibold"
                 [routerLink]="['product', product.id]">
-              {{ product.name }}
+                {{ product.name }}
             </a>
             <p>{{ product.description }}</p>
         </div>
@@ -27,7 +27,7 @@
         </select>
         <button
             class="mx-auto mt-4 w-48 h-8 rounded-sm bg-sky-900 text-white"
-            type="submit">
+            (click)="addProductToCart(product)">
             Add to cart
         </button>
     </div>

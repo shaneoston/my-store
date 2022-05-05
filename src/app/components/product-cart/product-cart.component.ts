@@ -15,6 +15,7 @@ export class ProductCartComponent implements OnInit {
         total: 0,
     }
     public cartTotal: string | undefined
+    public showQuantityUpdated: boolean = false
 
     constructor(private cartService: ProductCartService) {}
 
@@ -33,6 +34,13 @@ export class ProductCartComponent implements OnInit {
         )
         this.cart.total = total
         return total
+    }
+
+    notifyQuantityUpdated() {
+        this.showQuantityUpdated = true
+        setTimeout(() => {
+            this.showQuantityUpdated = false
+        }, 2500)
     }
 
     removeFromCart(cartItem: Product): void {
