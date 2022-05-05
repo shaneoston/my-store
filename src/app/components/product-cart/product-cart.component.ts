@@ -38,5 +38,8 @@ export class ProductCartComponent implements OnInit {
     removeFromCart(cartItem: Product): void {
         const index = this.cart.items.findIndex((i) => cartItem.id === i.id)
         this.cart.items.splice(index, 1)
+        setTimeout(() => {
+            alert(`Item ${cartItem.name} removed from your cart`)
+        }, 100)
     }
 }

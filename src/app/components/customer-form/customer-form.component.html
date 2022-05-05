@@ -8,11 +8,41 @@
             First name
         </label>
         <input
-            class="border border-slate-400 p-1 mb-4"
+            class="border border-slate-400 p-1"
+            [ngClass]="{
+                'mb-4': !(
+                    customerForm.get('fullName')!.invalid &&
+                    customerForm.get('fullName')!.errors &&
+                    (customerForm.get('fullName')!.dirty || customerForm.get('fullName')!.touched)
+                )
+            }"
             type="text"
             formControlName="fullName"
             id="customerFullName"
             placeholder="Enter your full name (at least 3 characters)" />
+        <div
+            [ngClass]="{
+                'mb-4':
+                    customerForm.get('fullName')!.invalid &&
+                    customerForm.get('fullName')!.errors &&
+                    (customerForm.get('fullName')!.dirty || customerForm.get('fullName')!.touched)
+            }"
+            *ngIf="
+                customerForm.get('fullName')!.invalid &&
+                customerForm.get('fullName')!.errors &&
+                (customerForm.get('fullName')!.dirty || customerForm.get('fullName')!.touched)
+            ">
+            <small
+                class="text-red-800 font-semibold"
+                *ngIf="customerForm.get('fullName')!.hasError('required')">
+                This field is required.
+            </small>
+            <small
+                class="text-red-800 font-semibold"
+                *ngIf="customerForm.get('fullName')!.hasError('minlength')">
+                The minimum length for this field is 3 characters.
+            </small>
+        </div>
         <label
             class="text-slate-800 pb-2"
             for="customerAddress">
@@ -20,10 +50,40 @@
         </label>
         <input
             class="border border-slate-400 p-1.5 mb-4"
+            [ngClass]="{
+                'mb-4': !(
+                    customerForm.get('address')!.invalid &&
+                    customerForm.get('address')!.errors &&
+                    (customerForm.get('address')!.dirty || customerForm.get('address')!.touched)
+                )
+            }"
             type="text"
             formControlName="address"
             id="customerAddress"
             placeholder="Enter your full address" />
+        <div
+            [ngClass]="{
+                'mb-4':
+                    customerForm.get('address')!.invalid &&
+                    customerForm.get('address')!.errors &&
+                    (customerForm.get('address')!.dirty || customerForm.get('address')!.touched)
+            }"
+            *ngIf="
+                customerForm.get('address')!.invalid &&
+                customerForm.get('address')!.errors &&
+                (customerForm.get('address')!.dirty || customerForm.get('address')!.touched)
+            ">
+            <small
+                class="text-red-800 font-semibold"
+                *ngIf="customerForm.get('address')!.hasError('required')">
+                This field is required.
+            </small>
+            <small
+                class="text-red-800 font-semibold"
+                *ngIf="customerForm.get('address')!.hasError('minlength')">
+                The minimum length for this field is 6 characters.
+            </small>
+        </div>
         <label
             class="text-slate-800 pb-2"
             for="customerCreditCard">
@@ -31,14 +91,40 @@
         </label>
         <input
             class="border border-slate-400 p-1.5 mb-4"
+            [ngClass]="{
+                'mb-4': !(
+                    customerForm.get('creditCard')!.invalid &&
+                    customerForm.get('creditCard')!.errors &&
+                    (customerForm.get('creditCard')!.dirty || customerForm.get('creditCard')!.touched)
+                )
+            }"
             type="number"
             formControlName="creditCard"
             id="customerCreditCard"
             placeholder="Credit card number" />
+        <div
+            [ngClass]="{
+                'mb-4':
+                    customerForm.get('creditCard')!.invalid &&
+                    customerForm.get('creditCard')!.errors &&
+                    (customerForm.get('creditCard')!.dirty || customerForm.get('creditCard')!.touched)
+            }"
+            *ngIf="
+                customerForm.get('creditCard')!.invalid &&
+                customerForm.get('creditCard')!.errors &&
+                (customerForm.get('creditCard')!.dirty || customerForm.get('creditCard')!.touched)
+            ">
+            <small
+                class="text-red-800 font-semibold"
+                *ngIf="customerForm.get('creditCard')!.hasError('required')">
+                This field is required.
+            </small>
+        </div>
         <p class="text-slate-500 text-sm">We never share your payment details with anyone ever!</p>
         <button
             class="mt-4 w-48 h-8 rounded-sm bg-sky-900 text-white"
-            type="submit">
+            type="submit"
+            [disabled]="customerForm.invalid">
             Submit
         </button>
     </div>

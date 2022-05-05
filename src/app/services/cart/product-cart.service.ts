@@ -19,9 +19,19 @@ export class ProductCartService {
     }
 
     addToCart(product: Product, quantity: number): void {
-        product.quantity = quantity
-        // @ts-ignore
-        this.cart.items.push(product)
+        const item = this.cart.items.find((item) => {
+            return product.id === item['id']
+        })
+
+        if (item) {
+            const index = this.cart.items.indexOf(item)
+            // @ts-ignore
+            this.cart.items[index].quantity += 1
+        } else {
+            product.quantity = quantity
+            // @ts-ignore
+            this.cart.items.push(product)
+        }
         alert(`Item ${product.name} added to cart`)
     }
 
